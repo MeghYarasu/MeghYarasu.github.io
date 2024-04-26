@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Virtual Date Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://source.unsplash.com/random?romantic'); /* Romantic background */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: 'Quicksand', sans-serif; /* Changed font */
+            overflow: hidden;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 999;
+            display: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal {
+            position: fixed;
+            top: 33%;
+            left: 27%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            transform: scale(0.8);
+        }
+
+        .modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal h2 {
+            color: #ff6699;
+            font-size: 26px;
+        }
+
+        .modal p {
+            color: #333;
+            font-size: 18px;
+        }
+
+        .modal button {
+            background-color: #ff6699;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .modal button:hover {
+            background-color: #cc5277;
+        }
+
+        .heart-animation {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay for modals -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Initial Pop-up -->
+    <div class="modal" id="questionModal">
+        <h2 class="heart-animation">Will you go on a virtual date with me? 🌹❤️</h2>
+        <button onclick="answerYes()">Yes</button>
+        <button onclick="answerNo()">No</button>
+    </div>
+
+    <!-- Pop-up for "Yes" -->
+    <div class="modal" id="dateDetails">
+        <h2>Yay! 🎉 Here are the details:</h2>
+        <p>Let's get all dressed up for the date. Dress Code: Classy!</p>
+		<p>Date: 4th May, Time: 11AM IST</p>
+		<p>I have a few cute surprises for you! Can't wait to spend time with you! 😘</p>
+        <button onclick="closeModals()">Okay!</button>
+    </div>
+
+    <!-- Pop-up for "No" -->
+    <div class="modal" id="wrongAnswer">
+        <h2>Oops! Wrong answer! 😜</h2>
+        <p>Come on, let's have some fun 😉</p>
+        <button onclick="showQuestionModal()">Try Again</button>
+    </div>
+
+    <script>
+        const overlay = document.getElementById('overlay');
+        const questionModal = document.getElementById('questionModal');
+        const dateDetails = document.getElementById('dateDetails');
+        const wrongAnswer = document.getElementById('wrongAnswer');
+
+        function answerYes() {
+            questionModal.classList.remove('show');
+            dateDetails.classList.add('show');
+        }
+
+        function answerNo() {
+            questionModal.classList.remove('show');
+            wrongAnswer.classList.add('show');
+        }
+
+        function showQuestionModal() {
+            wrongAnswer.classList.remove('show');
+            questionModal.classList.add('show');
+        }
+
+        function closeModals() {
+            overlay.classList.remove('show');
+            questionModal.classList.remove('show');
+            dateDetails.classList.remove('show');
+            wrongAnswer.classList.remove('show');
+        }
+
+        overlay.classList.add('show');
+        questionModal.classList.add('show');
+    </script>
+</body>
+</html>
