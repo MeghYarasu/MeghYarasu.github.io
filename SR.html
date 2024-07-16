@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry</title>
+    <style>
+        body {
+            background: url('https://images.unsplash.com/photo-1560807707-8cc77767d783?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .scroll {
+            position: relative;
+            width: 60%;
+            max-width: 600px;
+            margin: 0 auto;
+            background: #f4e4d4;
+            padding: 20px 40px;
+            border: 2px solid #d1b894;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .scroll:before,
+        .scroll:after {
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 60px;
+            background: #d1b894;
+        }
+        .scroll:before {
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-bottom: 2px solid #d1b894;
+            border-radius: 0 0 20px 20px;
+        }
+        .scroll:after {
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-top: 2px solid #d1b894;
+            border-radius: 20px 20px 0 0;
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 2em;
+            color: #d9534f;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll">
+        <h1>I'm Sorry</h1>
+        <p>Dear Kanna,</p>
+        <p>I want to sincerely apologize for my actions. I understand how much they hurt you and I regret it deeply. Please forgive me and allow us to move forward together. I love you.</p>
+        <p>With all my heart,</p>
+        <p>MY</p>
+    </div>
+</body>
+</html>
